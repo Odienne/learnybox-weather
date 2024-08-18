@@ -8,5 +8,13 @@ if (!is_file(__DIR__ . '/../vendor/autoload.php')) {
 
 require __DIR__ . '/../vendor/autoload.php';
 
-// TODO: show weather
 $weatherService = new WeatherService();
+
+$cityWeatherHtml = $weatherService->getCityWeatherById(2172797);
+echo $cityWeatherHtml;
+
+$cityWeatherHtml = $weatherService->getCityWeatherByName("Toulouse");
+echo $cityWeatherHtml;
+
+$cityWeatherHtml = $weatherService->getCityWeatherByCoordinates(11, -55);
+echo $cityWeatherHtml;
