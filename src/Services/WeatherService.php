@@ -2,8 +2,6 @@
 
 namespace PhpTest\Services;
 
-use PhpTest\DTO\CityDTO;
-
 /**
  * Class WeatherService
  *
@@ -40,14 +38,24 @@ class WeatherService
         $this->geocodingService = new GeocodingService();
     }
 
-    public function getCityWeatherByName($name)
+    /**
+     * retrieves city weather, queried by its name
+     * @param $name
+     * @return array|bool|string
+     */
+    public function getCityWeatherByName($name): bool|array|string
     {
-        $cityDto = $this->geocodingService->getLocationFromName($name);
+        $cityDto = $this->geocodingService->getCityCoordinatesFromCityName($name);
 
         return $this->getCityWeatherByCoordinates($cityDto->latitude, $cityDto->longitude);
     }
 
-    public function getCityWeatherById($id)
+    /**
+     * retrieves city weather, queried by its ID
+     * @param $id
+     * @return array|bool|string
+     */
+    public function getCityWeatherById($id): bool|array|string
     {
         $finalUrl = $this->apiUrl . "?id=$id&mode=html&appid=" . $this->apiKey;
 
@@ -65,6 +73,12 @@ class WeatherService
         return $response;
     }
 
+    /**
+     * retrieves city weather, queried by its coordinates
+     * @param $lat
+     * @param $lon
+     * @return array|bool|string
+     */
     public function getCityWeatherByCoordinates($lat, $lon)
     {
         $finalUrl = $this->apiUrl . "?lat=$lat&lon=$lon&mode=html&appid=" . $this->apiKey;

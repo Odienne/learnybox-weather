@@ -2,6 +2,11 @@
 
 namespace PhpTest\DTO;
 
+/**
+ * Class CityDTO
+ *
+ * @package PhpTest
+ */
 class CityDTO
 {
     public string $name;

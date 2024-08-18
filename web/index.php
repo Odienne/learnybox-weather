@@ -10,11 +10,11 @@ require __DIR__ . '/../vendor/autoload.php';
 
 $weatherService = new WeatherService();
 
-$cityWeatherHtml = $weatherService->getCityWeatherById(2172797);
-echo $cityWeatherHtml;
+$cityWeatherByIdHtml = $weatherService->getCityWeatherById(2172797);
+echo $cityWeatherByIdHtml;
 
-$cityWeatherHtml = $weatherService->getCityWeatherByName("Toulouse");
-echo $cityWeatherHtml;
+$cityWeatherByNameHtml = $weatherService->getCityWeatherByName("Toulouse");
+echo $cityWeatherByNameHtml;
 
-$cityWeatherHtml = $weatherService->getCityWeatherByCoordinates(11, -55);
-echo $cityWeatherHtml;
+$cityWeatherByCoordinatesHtml = $weatherService->getCityWeatherByCoordinates(48.864716, 2.349014);
+echo $cityWeatherByCoordinatesHtml;

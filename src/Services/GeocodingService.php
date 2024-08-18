@@ -36,7 +36,13 @@ class GeocodingService
         $this->apiUrl = $apiUrl;
     }
 
-    public function getLocationFromName(string $name, int $limit = 1): CityDTO|array
+    /**
+     * This function uses the geocoding API to retrieve a city coordinates, queried by name
+     * @param string $name name of queried city
+     * @param int $limit
+     * @return CityDTO|array
+     */
+    public function getCityCoordinatesFromCityName(string $name, int $limit = 1): CityDTO|array
     {
         $finalUrl = $this->apiUrl . "?q=$name&limit=$limit&appid=" . $this->apiKey;
 
@@ -54,7 +60,6 @@ class GeocodingService
         $data = json_decode($response, true);
 
         return new CityDTO($name, $data[0]["lat"], $data[0]["lon"]);
-
     }
 
 
