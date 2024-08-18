@@ -1,3 +1,4 @@
 <?php
 
-define("OPENWEATHER_API_KEY", "88e3e7ff767a0e786001c0de4054bdc8");
+// need to secure this on github
+define("OPENWEATHER_API_KEY", "0342670240487d06a9269516af3bcdc5");
